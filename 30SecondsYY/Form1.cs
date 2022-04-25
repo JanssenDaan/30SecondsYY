@@ -13,15 +13,17 @@ namespace _30SecondsYY
 {
     public partial class Form1 : Form
     {
+        //Usercontrols
         public UCTeam UCTeam = new UCTeam();
         public UCPlayer UCPlayer = new UCPlayer();
+
         public Random rand = new Random();
         public int teamCount { get; set; }
         public int playerCount { get; set; }
+        //Property to easily get and set information out of mainform in usercontrol
         public static Form1 instance { get; set; }
         public List<UCPlayer> UCPlayers = new List<UCPlayer>();
         public List<Player> Players = new List<Player>();
-
         public List<UCTeam> UCTeams = new List<UCTeam>();
         public List<Team> Teams = new List<Team>();
         public Game Game = new Game();
@@ -36,9 +38,9 @@ namespace _30SecondsYY
         private void btnAddTeamsDjan_Click(object sender, EventArgs e)
         {
             UCTeam = new UCTeam();
-            UCTeam.Team.Teamname = "Team" + teamCount;
+            UCTeam.Team.Teamname = "Team: " + teamCount;
             UCTeam.Team.TeamId = teamCount;
-            UCTeam.tbxTeamName.Text = "Team" + teamCount;
+            UCTeam.tbxTeamName.Text = "Team: " + teamCount;
             pnlTeams.Controls.Add(UCTeam);
             teamCount++;
         }
@@ -87,13 +89,9 @@ namespace _30SecondsYY
         private void btnPlayGame_Click(object sender, EventArgs e)
         {
             OpenFileDialog Dialog = new OpenFileDialog();
-
-            Dialog.Title = "Textbestand pakken kut";
-            Dialog.Filter = "TXT files|*.txt";
             Dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop); ;
             if (Dialog.ShowDialog() == DialogResult.OK)
             {
-                
                 using (StreamReader Reader = new StreamReader(Dialog.FileName))
                 {
                     string line;
@@ -104,7 +102,6 @@ namespace _30SecondsYY
                 }
                 tclControl.SelectedTab = tbpPlay;
                 tmrGameTimer.Start();
-                btnPlayGame.Visible = false;
                 Countdown = 30;
                 
 
@@ -143,7 +140,7 @@ namespace _30SecondsYY
 
         public void NextPlayer()
         {
-            if (Game.CurrentPID > Game.Players.Count)
+            if (Game.CurrentPID == Game.Players.Count -1)
             {
                 Game.CurrentPID = 0;
             }

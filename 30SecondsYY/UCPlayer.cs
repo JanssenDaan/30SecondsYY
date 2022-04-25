@@ -33,13 +33,21 @@ namespace _30SecondsYY
 
         private void cbxSelectTeam_Click(object sender, EventArgs e)
         {
-            cbxSelectTeam.Items.Clear();
-            TeamList.Clear();
-            TeamList = Form1.instance.pnlTeams.Controls.OfType<UCTeam>().ToList(); ;
-            foreach (UCTeam TeamControl in TeamList)
+            if (Form1.instance.pnlTeams.Controls.Count != 0)
             {
-                cbxSelectTeam.Items.Add(TeamControl.Team.Teamname);
+                cbxSelectTeam.Items.Clear();
+                TeamList.Clear();
+                TeamList = Form1.instance.pnlTeams.Controls.OfType<UCTeam>().ToList(); ;
+                foreach (UCTeam TeamControl in TeamList)
+                {
+                    cbxSelectTeam.Items.Add(TeamControl.Team.Teamname);
+                }
             }
+            else
+            {
+                MessageBox.Show("Not enough teams");
+            }
+            
         }
 
         private void cbxSelectTeam_SelectedIndexChanged(object sender, EventArgs e)
