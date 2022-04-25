@@ -106,8 +106,57 @@ namespace _30SecondsYY
                 tmrGameTimer.Start();
                 btnPlayGame.Visible = false;
                 Countdown = 30;
+                
 
+                foreach (UCPlayer pl in pnlPlayers.Controls.OfType<UCPlayer>().ToList())
+                {
+                    Game.Players.Add(pl.Player);
+                }
+                ChangeLabels();
+                NextPlayer();
             }
+        }
+
+        private void tmrGameTimer_Tick(object sender, EventArgs e)
+        {
+            if (Countdown == 0)
+            {
+                tmrGameTimer.Stop();
+                Countdown = 30;
+            }
+            lblCountdown.Text = "Countdown = " + Countdown.ToString();
+            Countdown--;
+        }
+
+        public string GetWord()
+        {
+            return WordsList[rand.Next(1, WordsList.Count)];
+        }
+        public void ChangeLabels()
+        {
+            lblWordOne.Text = GetWord();
+            lblWordTwo.Text = GetWord();
+            lblWordThree.Text = GetWord();
+            lblWordFour.Text = GetWord();
+            lblWordFive.Text = GetWord();
+        }
+
+        public void NextPlayer()
+        {
+            if (Game.CurrentPID > Game.Players.Count)
+            {
+                Game.CurrentPID = 0;
+            }
+            lblCurrentPlayer.Text = Game.Players[Game.CurrentPID].PlayerName;
+            Game.CurrentPID++;
+        }
+
+        private void btnNextInPlay_Click(object sender, EventArgs e)
+        {
+            ChangeLabels();
+            NextPlayer();
+            Countdown = 30;
+            tmrGameTimer.Start();
         }
     }
 }

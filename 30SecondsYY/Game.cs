@@ -15,5 +15,6 @@ namespace _30SecondsYY
         public int ScoreTeamThree { get; set; }
         public int ScoreTeamFour { get; set; }
         public string CurrentPlayer { get; set; }
+        public int CurrentPID;
     }
 }

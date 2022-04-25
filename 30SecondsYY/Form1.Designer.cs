@@ -31,28 +31,30 @@
             this.components = new System.ComponentModel.Container();
             this.tclControl = new System.Windows.Forms.TabControl();
             this.tbpTeamsPlayers = new System.Windows.Forms.TabPage();
-            this.tbpGameView = new System.Windows.Forms.TabPage();
+            this.btnNext = new System.Windows.Forms.Button();
             this.pnlTeams = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddTeamsDjan = new System.Windows.Forms.Button();
             this.pnlPlayers = new System.Windows.Forms.FlowLayoutPanel();
             this.btnAddPlayer = new System.Windows.Forms.Button();
-            this.btnNext = new System.Windows.Forms.Button();
-            this.tbpPlay = new System.Windows.Forms.TabPage();
-            this.lbxTeams = new System.Windows.Forms.ListBox();
-            this.lbxPlayersInTeams = new System.Windows.Forms.ListBox();
+            this.tbpGameView = new System.Windows.Forms.TabPage();
             this.btnPlayGame = new System.Windows.Forms.Button();
-            this.tmrGameTimer = new System.Windows.Forms.Timer(this.components);
+            this.lbxPlayersInTeams = new System.Windows.Forms.ListBox();
+            this.lbxTeams = new System.Windows.Forms.ListBox();
+            this.tbpPlay = new System.Windows.Forms.TabPage();
+            this.cbxFive = new System.Windows.Forms.CheckBox();
+            this.cbxThree = new System.Windows.Forms.CheckBox();
+            this.cbxTwo = new System.Windows.Forms.CheckBox();
+            this.cbxFour = new System.Windows.Forms.CheckBox();
+            this.lblWordFive = new System.Windows.Forms.Label();
+            this.lblWordFour = new System.Windows.Forms.Label();
+            this.lblWordThree = new System.Windows.Forms.Label();
+            this.lblWordTwo = new System.Windows.Forms.Label();
+            this.lblWordOne = new System.Windows.Forms.Label();
+            this.cbxOne = new System.Windows.Forms.CheckBox();
             this.lblCurrentPlayer = new System.Windows.Forms.Label();
-            this.cbxFiveDjan = new System.Windows.Forms.CheckBox();
-            this.cbxThreeDjan = new System.Windows.Forms.CheckBox();
-            this.cbxTwoDjan = new System.Windows.Forms.CheckBox();
-            this.cbxFourDjan = new System.Windows.Forms.CheckBox();
-            this.lblWordFiveDjan = new System.Windows.Forms.Label();
-            this.lblWordFourDjan = new System.Windows.Forms.Label();
-            this.lblWordThreeDjan = new System.Windows.Forms.Label();
-            this.lblWordTwoDjan = new System.Windows.Forms.Label();
-            this.lblWordOneDjan = new System.Windows.Forms.Label();
-            this.cbxOneDjan = new System.Windows.Forms.CheckBox();
+            this.tmrGameTimer = new System.Windows.Forms.Timer(this.components);
+            this.btnNextInPlay = new System.Windows.Forms.Button();
+            this.lblCountdown = new System.Windows.Forms.Label();
             this.tclControl.SuspendLayout();
             this.tbpTeamsPlayers.SuspendLayout();
             this.tbpGameView.SuspendLayout();
@@ -85,18 +87,15 @@
             this.tbpTeamsPlayers.Text = "Teams and Players";
             this.tbpTeamsPlayers.UseVisualStyleBackColor = true;
             // 
-            // tbpGameView
+            // btnNext
             // 
-            this.tbpGameView.Controls.Add(this.btnPlayGame);
-            this.tbpGameView.Controls.Add(this.lbxPlayersInTeams);
-            this.tbpGameView.Controls.Add(this.lbxTeams);
-            this.tbpGameView.Location = new System.Drawing.Point(4, 22);
-            this.tbpGameView.Name = "tbpGameView";
-            this.tbpGameView.Padding = new System.Windows.Forms.Padding(3);
-            this.tbpGameView.Size = new System.Drawing.Size(657, 462);
-            this.tbpGameView.TabIndex = 1;
-            this.tbpGameView.Text = "Game View";
-            this.tbpGameView.UseVisualStyleBackColor = true;
+            this.btnNext.Location = new System.Drawing.Point(525, 110);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(103, 61);
+            this.btnNext.TabIndex = 9;
+            this.btnNext.Text = "Go to Game View";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
             // 
             // pnlTeams
             // 
@@ -134,52 +133,18 @@
             this.btnAddPlayer.UseVisualStyleBackColor = true;
             this.btnAddPlayer.Click += new System.EventHandler(this.btnAddPlayer_Click);
             // 
-            // btnNext
+            // tbpGameView
             // 
-            this.btnNext.Location = new System.Drawing.Point(525, 110);
-            this.btnNext.Name = "btnNext";
-            this.btnNext.Size = new System.Drawing.Size(103, 61);
-            this.btnNext.TabIndex = 9;
-            this.btnNext.Text = "Go to Game View";
-            this.btnNext.UseVisualStyleBackColor = true;
-            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
-            // 
-            // tbpPlay
-            // 
-            this.tbpPlay.Controls.Add(this.cbxFiveDjan);
-            this.tbpPlay.Controls.Add(this.cbxThreeDjan);
-            this.tbpPlay.Controls.Add(this.cbxTwoDjan);
-            this.tbpPlay.Controls.Add(this.cbxFourDjan);
-            this.tbpPlay.Controls.Add(this.lblWordFiveDjan);
-            this.tbpPlay.Controls.Add(this.lblWordFourDjan);
-            this.tbpPlay.Controls.Add(this.lblWordThreeDjan);
-            this.tbpPlay.Controls.Add(this.lblWordTwoDjan);
-            this.tbpPlay.Controls.Add(this.lblWordOneDjan);
-            this.tbpPlay.Controls.Add(this.cbxOneDjan);
-            this.tbpPlay.Controls.Add(this.lblCurrentPlayer);
-            this.tbpPlay.Location = new System.Drawing.Point(4, 22);
-            this.tbpPlay.Name = "tbpPlay";
-            this.tbpPlay.Size = new System.Drawing.Size(657, 462);
-            this.tbpPlay.TabIndex = 2;
-            this.tbpPlay.Text = "Play";
-            this.tbpPlay.UseVisualStyleBackColor = true;
-            // 
-            // lbxTeams
-            // 
-            this.lbxTeams.FormattingEnabled = true;
-            this.lbxTeams.Location = new System.Drawing.Point(6, 35);
-            this.lbxTeams.Name = "lbxTeams";
-            this.lbxTeams.Size = new System.Drawing.Size(145, 277);
-            this.lbxTeams.TabIndex = 0;
-            this.lbxTeams.SelectedIndexChanged += new System.EventHandler(this.lbxTeams_SelectedIndexChanged);
-            // 
-            // lbxPlayersInTeams
-            // 
-            this.lbxPlayersInTeams.FormattingEnabled = true;
-            this.lbxPlayersInTeams.Location = new System.Drawing.Point(157, 35);
-            this.lbxPlayersInTeams.Name = "lbxPlayersInTeams";
-            this.lbxPlayersInTeams.Size = new System.Drawing.Size(145, 277);
-            this.lbxPlayersInTeams.TabIndex = 1;
+            this.tbpGameView.Controls.Add(this.btnPlayGame);
+            this.tbpGameView.Controls.Add(this.lbxPlayersInTeams);
+            this.tbpGameView.Controls.Add(this.lbxTeams);
+            this.tbpGameView.Location = new System.Drawing.Point(4, 22);
+            this.tbpGameView.Name = "tbpGameView";
+            this.tbpGameView.Padding = new System.Windows.Forms.Padding(3);
+            this.tbpGameView.Size = new System.Drawing.Size(657, 462);
+            this.tbpGameView.TabIndex = 1;
+            this.tbpGameView.Text = "Game View";
+            this.tbpGameView.UseVisualStyleBackColor = true;
             // 
             // btnPlayGame
             // 
@@ -191,10 +156,139 @@
             this.btnPlayGame.UseVisualStyleBackColor = true;
             this.btnPlayGame.Click += new System.EventHandler(this.btnPlayGame_Click);
             // 
-            // tmrGameTimer
+            // lbxPlayersInTeams
             // 
-            this.tmrGameTimer.Enabled = true;
-            this.tmrGameTimer.Interval = 1000;
+            this.lbxPlayersInTeams.FormattingEnabled = true;
+            this.lbxPlayersInTeams.Location = new System.Drawing.Point(157, 35);
+            this.lbxPlayersInTeams.Name = "lbxPlayersInTeams";
+            this.lbxPlayersInTeams.Size = new System.Drawing.Size(145, 277);
+            this.lbxPlayersInTeams.TabIndex = 1;
+            // 
+            // lbxTeams
+            // 
+            this.lbxTeams.FormattingEnabled = true;
+            this.lbxTeams.Location = new System.Drawing.Point(6, 35);
+            this.lbxTeams.Name = "lbxTeams";
+            this.lbxTeams.Size = new System.Drawing.Size(145, 277);
+            this.lbxTeams.TabIndex = 0;
+            this.lbxTeams.SelectedIndexChanged += new System.EventHandler(this.lbxTeams_SelectedIndexChanged);
+            // 
+            // tbpPlay
+            // 
+            this.tbpPlay.Controls.Add(this.lblCountdown);
+            this.tbpPlay.Controls.Add(this.btnNextInPlay);
+            this.tbpPlay.Controls.Add(this.cbxFive);
+            this.tbpPlay.Controls.Add(this.cbxThree);
+            this.tbpPlay.Controls.Add(this.cbxTwo);
+            this.tbpPlay.Controls.Add(this.cbxFour);
+            this.tbpPlay.Controls.Add(this.lblWordFive);
+            this.tbpPlay.Controls.Add(this.lblWordFour);
+            this.tbpPlay.Controls.Add(this.lblWordThree);
+            this.tbpPlay.Controls.Add(this.lblWordTwo);
+            this.tbpPlay.Controls.Add(this.lblWordOne);
+            this.tbpPlay.Controls.Add(this.cbxOne);
+            this.tbpPlay.Controls.Add(this.lblCurrentPlayer);
+            this.tbpPlay.Location = new System.Drawing.Point(4, 22);
+            this.tbpPlay.Name = "tbpPlay";
+            this.tbpPlay.Size = new System.Drawing.Size(657, 462);
+            this.tbpPlay.TabIndex = 2;
+            this.tbpPlay.Text = "Play";
+            this.tbpPlay.UseVisualStyleBackColor = true;
+            // 
+            // cbxFive
+            // 
+            this.cbxFive.AutoSize = true;
+            this.cbxFive.Location = new System.Drawing.Point(271, 204);
+            this.cbxFive.Name = "cbxFive";
+            this.cbxFive.Size = new System.Drawing.Size(52, 17);
+            this.cbxFive.TabIndex = 23;
+            this.cbxFive.Text = "Done";
+            this.cbxFive.UseVisualStyleBackColor = true;
+            // 
+            // cbxThree
+            // 
+            this.cbxThree.AutoSize = true;
+            this.cbxThree.Location = new System.Drawing.Point(271, 122);
+            this.cbxThree.Name = "cbxThree";
+            this.cbxThree.Size = new System.Drawing.Size(52, 17);
+            this.cbxThree.TabIndex = 22;
+            this.cbxThree.Text = "Done";
+            this.cbxThree.UseVisualStyleBackColor = true;
+            // 
+            // cbxTwo
+            // 
+            this.cbxTwo.AutoSize = true;
+            this.cbxTwo.Location = new System.Drawing.Point(271, 82);
+            this.cbxTwo.Name = "cbxTwo";
+            this.cbxTwo.Size = new System.Drawing.Size(52, 17);
+            this.cbxTwo.TabIndex = 20;
+            this.cbxTwo.Text = "Done";
+            this.cbxTwo.UseVisualStyleBackColor = true;
+            // 
+            // cbxFour
+            // 
+            this.cbxFour.AutoSize = true;
+            this.cbxFour.Location = new System.Drawing.Point(271, 164);
+            this.cbxFour.Name = "cbxFour";
+            this.cbxFour.Size = new System.Drawing.Size(52, 17);
+            this.cbxFour.TabIndex = 21;
+            this.cbxFour.Text = "Done";
+            this.cbxFour.UseVisualStyleBackColor = true;
+            // 
+            // lblWordFive
+            // 
+            this.lblWordFive.AutoSize = true;
+            this.lblWordFive.Location = new System.Drawing.Point(18, 208);
+            this.lblWordFive.Name = "lblWordFive";
+            this.lblWordFive.Size = new System.Drawing.Size(16, 13);
+            this.lblWordFive.TabIndex = 19;
+            this.lblWordFive.Text = "---";
+            // 
+            // lblWordFour
+            // 
+            this.lblWordFour.AutoSize = true;
+            this.lblWordFour.Location = new System.Drawing.Point(18, 168);
+            this.lblWordFour.Name = "lblWordFour";
+            this.lblWordFour.Size = new System.Drawing.Size(16, 13);
+            this.lblWordFour.TabIndex = 18;
+            this.lblWordFour.Text = "---";
+            // 
+            // lblWordThree
+            // 
+            this.lblWordThree.AutoSize = true;
+            this.lblWordThree.Location = new System.Drawing.Point(18, 126);
+            this.lblWordThree.Name = "lblWordThree";
+            this.lblWordThree.Size = new System.Drawing.Size(16, 13);
+            this.lblWordThree.TabIndex = 17;
+            this.lblWordThree.Text = "---";
+            // 
+            // lblWordTwo
+            // 
+            this.lblWordTwo.AutoSize = true;
+            this.lblWordTwo.Location = new System.Drawing.Point(18, 86);
+            this.lblWordTwo.Name = "lblWordTwo";
+            this.lblWordTwo.Size = new System.Drawing.Size(16, 13);
+            this.lblWordTwo.TabIndex = 16;
+            this.lblWordTwo.Text = "---";
+            // 
+            // lblWordOne
+            // 
+            this.lblWordOne.AutoSize = true;
+            this.lblWordOne.Location = new System.Drawing.Point(18, 47);
+            this.lblWordOne.Name = "lblWordOne";
+            this.lblWordOne.Size = new System.Drawing.Size(16, 13);
+            this.lblWordOne.TabIndex = 15;
+            this.lblWordOne.Text = "---";
+            // 
+            // cbxOne
+            // 
+            this.cbxOne.AutoSize = true;
+            this.cbxOne.Location = new System.Drawing.Point(271, 43);
+            this.cbxOne.Name = "cbxOne";
+            this.cbxOne.Size = new System.Drawing.Size(52, 17);
+            this.cbxOne.TabIndex = 14;
+            this.cbxOne.Text = "Done";
+            this.cbxOne.UseVisualStyleBackColor = true;
             // 
             // lblCurrentPlayer
             // 
@@ -206,100 +300,30 @@
             this.lblCurrentPlayer.TabIndex = 1;
             this.lblCurrentPlayer.Text = "CurrentPlayer: ";
             // 
-            // cbxFiveDjan
+            // tmrGameTimer
             // 
-            this.cbxFiveDjan.AutoSize = true;
-            this.cbxFiveDjan.Location = new System.Drawing.Point(271, 204);
-            this.cbxFiveDjan.Name = "cbxFiveDjan";
-            this.cbxFiveDjan.Size = new System.Drawing.Size(52, 17);
-            this.cbxFiveDjan.TabIndex = 23;
-            this.cbxFiveDjan.Text = "Done";
-            this.cbxFiveDjan.UseVisualStyleBackColor = true;
+            this.tmrGameTimer.Enabled = true;
+            this.tmrGameTimer.Interval = 1000;
+            this.tmrGameTimer.Tick += new System.EventHandler(this.tmrGameTimer_Tick);
             // 
-            // cbxThreeDjan
+            // btnNextInPlay
             // 
-            this.cbxThreeDjan.AutoSize = true;
-            this.cbxThreeDjan.Location = new System.Drawing.Point(271, 122);
-            this.cbxThreeDjan.Name = "cbxThreeDjan";
-            this.cbxThreeDjan.Size = new System.Drawing.Size(52, 17);
-            this.cbxThreeDjan.TabIndex = 22;
-            this.cbxThreeDjan.Text = "Done";
-            this.cbxThreeDjan.UseVisualStyleBackColor = true;
+            this.btnNextInPlay.Location = new System.Drawing.Point(470, 37);
+            this.btnNextInPlay.Name = "btnNextInPlay";
+            this.btnNextInPlay.Size = new System.Drawing.Size(75, 23);
+            this.btnNextInPlay.TabIndex = 24;
+            this.btnNextInPlay.Text = "Next";
+            this.btnNextInPlay.UseVisualStyleBackColor = true;
+            this.btnNextInPlay.Click += new System.EventHandler(this.btnNextInPlay_Click);
             // 
-            // cbxTwoDjan
+            // lblCountdown
             // 
-            this.cbxTwoDjan.AutoSize = true;
-            this.cbxTwoDjan.Location = new System.Drawing.Point(271, 82);
-            this.cbxTwoDjan.Name = "cbxTwoDjan";
-            this.cbxTwoDjan.Size = new System.Drawing.Size(52, 17);
-            this.cbxTwoDjan.TabIndex = 20;
-            this.cbxTwoDjan.Text = "Done";
-            this.cbxTwoDjan.UseVisualStyleBackColor = true;
-            // 
-            // cbxFourDjan
-            // 
-            this.cbxFourDjan.AutoSize = true;
-            this.cbxFourDjan.Location = new System.Drawing.Point(271, 164);
-            this.cbxFourDjan.Name = "cbxFourDjan";
-            this.cbxFourDjan.Size = new System.Drawing.Size(52, 17);
-            this.cbxFourDjan.TabIndex = 21;
-            this.cbxFourDjan.Text = "Done";
-            this.cbxFourDjan.UseVisualStyleBackColor = true;
-            // 
-            // lblWordFiveDjan
-            // 
-            this.lblWordFiveDjan.AutoSize = true;
-            this.lblWordFiveDjan.Location = new System.Drawing.Point(18, 208);
-            this.lblWordFiveDjan.Name = "lblWordFiveDjan";
-            this.lblWordFiveDjan.Size = new System.Drawing.Size(16, 13);
-            this.lblWordFiveDjan.TabIndex = 19;
-            this.lblWordFiveDjan.Text = "---";
-            // 
-            // lblWordFourDjan
-            // 
-            this.lblWordFourDjan.AutoSize = true;
-            this.lblWordFourDjan.Location = new System.Drawing.Point(18, 168);
-            this.lblWordFourDjan.Name = "lblWordFourDjan";
-            this.lblWordFourDjan.Size = new System.Drawing.Size(16, 13);
-            this.lblWordFourDjan.TabIndex = 18;
-            this.lblWordFourDjan.Text = "---";
-            // 
-            // lblWordThreeDjan
-            // 
-            this.lblWordThreeDjan.AutoSize = true;
-            this.lblWordThreeDjan.Location = new System.Drawing.Point(18, 126);
-            this.lblWordThreeDjan.Name = "lblWordThreeDjan";
-            this.lblWordThreeDjan.Size = new System.Drawing.Size(16, 13);
-            this.lblWordThreeDjan.TabIndex = 17;
-            this.lblWordThreeDjan.Text = "---";
-            // 
-            // lblWordTwoDjan
-            // 
-            this.lblWordTwoDjan.AutoSize = true;
-            this.lblWordTwoDjan.Location = new System.Drawing.Point(18, 86);
-            this.lblWordTwoDjan.Name = "lblWordTwoDjan";
-            this.lblWordTwoDjan.Size = new System.Drawing.Size(16, 13);
-            this.lblWordTwoDjan.TabIndex = 16;
-            this.lblWordTwoDjan.Text = "---";
-            // 
-            // lblWordOneDjan
-            // 
-            this.lblWordOneDjan.AutoSize = true;
-            this.lblWordOneDjan.Location = new System.Drawing.Point(18, 47);
-            this.lblWordOneDjan.Name = "lblWordOneDjan";
-            this.lblWordOneDjan.Size = new System.Drawing.Size(16, 13);
-            this.lblWordOneDjan.TabIndex = 15;
-            this.lblWordOneDjan.Text = "---";
-            // 
-            // cbxOneDjan
-            // 
-            this.cbxOneDjan.AutoSize = true;
-            this.cbxOneDjan.Location = new System.Drawing.Point(271, 43);
-            this.cbxOneDjan.Name = "cbxOneDjan";
-            this.cbxOneDjan.Size = new System.Drawing.Size(52, 17);
-            this.cbxOneDjan.TabIndex = 14;
-            this.cbxOneDjan.Text = "Done";
-            this.cbxOneDjan.UseVisualStyleBackColor = true;
+            this.lblCountdown.AutoSize = true;
+            this.lblCountdown.Location = new System.Drawing.Point(492, 359);
+            this.lblCountdown.Name = "lblCountdown";
+            this.lblCountdown.Size = new System.Drawing.Size(76, 13);
+            this.lblCountdown.TabIndex = 25;
+            this.lblCountdown.Text = "Countdown: ...";
             // 
             // Form1
             // 
@@ -333,17 +357,19 @@
         private System.Windows.Forms.ListBox lbxTeams;
         private System.Windows.Forms.Button btnPlayGame;
         private System.Windows.Forms.Timer tmrGameTimer;
-        private System.Windows.Forms.CheckBox cbxFiveDjan;
-        private System.Windows.Forms.CheckBox cbxThreeDjan;
-        private System.Windows.Forms.CheckBox cbxTwoDjan;
-        private System.Windows.Forms.CheckBox cbxFourDjan;
-        private System.Windows.Forms.Label lblWordFiveDjan;
-        private System.Windows.Forms.Label lblWordFourDjan;
-        private System.Windows.Forms.Label lblWordThreeDjan;
-        private System.Windows.Forms.Label lblWordTwoDjan;
-        private System.Windows.Forms.Label lblWordOneDjan;
-        private System.Windows.Forms.CheckBox cbxOneDjan;
+        private System.Windows.Forms.CheckBox cbxFive;
+        private System.Windows.Forms.CheckBox cbxThree;
+        private System.Windows.Forms.CheckBox cbxTwo;
+        private System.Windows.Forms.CheckBox cbxFour;
+        private System.Windows.Forms.Label lblWordFive;
+        private System.Windows.Forms.Label lblWordFour;
+        private System.Windows.Forms.Label lblWordThree;
+        private System.Windows.Forms.Label lblWordTwo;
+        private System.Windows.Forms.Label lblWordOne;
+        private System.Windows.Forms.CheckBox cbxOne;
         private System.Windows.Forms.Label lblCurrentPlayer;
+        private System.Windows.Forms.Button btnNextInPlay;
+        private System.Windows.Forms.Label lblCountdown;
     }
 }
 
